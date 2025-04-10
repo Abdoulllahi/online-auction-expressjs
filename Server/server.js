@@ -21,6 +21,20 @@ app.get("/list", (request, response) => {
     response.send(dbJson);
 })
 
+app.post("/bid", (request, response) => {
+    console.log("POST: /list received @ " + (new Date(Date.now())).toISOString());
+    const id = request.query.id;
+    console.log("id = " + id);
+
+    const newBid = request.query.newbid;
+    console.log("newBid = " + newBid)    
+
+    const newBidUser = request.query.newbiduser;
+    console.log("newBidUser = " + newBidUser);
+
+    response.send("OK");
+})
+
 function virtualBid() {
     
     dbJson.forEach((item) => {
